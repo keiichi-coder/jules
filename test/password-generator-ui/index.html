@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスワード生成ツール</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>パスワード生成ツール</h1>
+
+    <section>
+        <h2>パスワード長</h2>
+        <label><input type="radio" name="lengthOption" value="8"> 8文字</label>
+        <label><input type="radio" name="lengthOption" value="10"> 10文字</label>
+        <label><input type="radio" name="lengthOption" value="12" checked> 12文字</label>
+        <label><input type="radio" name="lengthOption" value="custom"> その他:</label>
+        <input type="number" id="customLengthInput" value="12" min="4" max="128" disabled>
+    </section>
+
+    <section>
+        <h2>文字タイプ</h2>
+        <label><input type="checkbox" id="includeLowercase" name="charType" checked> 小文字 (abc)</label><br>
+        <label><input type="checkbox" id="includeUppercase" name="charType"> 大文字 (ABC)</label><br>
+        <label><input type="checkbox" id="includeNumbers" name="charType" checked> 数字 (123)</label><br>
+        <label><input type="checkbox" id="includeSymbols" name="charType"> 記号 (!@#)</label><br>
+    </section>
+
+    <section>
+        <h2>ベースワード (任意)</h2>
+        <label for="baseWord">ベースワード:</label>
+        <input type="text" id="baseWord">
+    </section>
+
+    <section>
+        <h2>パスワードパターン</h2>
+        <label><input type="radio" name="passwordPattern" value="append" checked> ベース文字の後ろにランダム生成文字を付与する</label>
+        <label><input type="radio" name="passwordPattern" value="alter_base"> ベース文字そのものもランダムに変更する</label>
+    </section>
+
+    <section>
+        <button id="generateButton">パスワード生成</button>
+    </section>
+
+    <section>
+        <h2>生成されたパスワード</h2>
+        <input type="text" id="generatedPassword" readonly>
+        <button id="copyButton">コピー</button>
+    </section>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
