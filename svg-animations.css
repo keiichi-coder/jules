@@ -1,0 +1,51 @@
+.animate-draw-stroke { /* Renamed from .animate-draw-path-simple */
+    /* Assumes pathLength="100" is set on the SVG path element */
+    stroke-dasharray: 100; /* Total length of the path (matches pathLength) */
+    stroke-dashoffset: 100; /* Initial offset, making the line invisible */
+    animation: draw-path-kf var(--char-animation-duration) linear forwards; /* Apply animation, using variable */
+}
+
+@keyframes draw-path-kf {
+    to {
+        stroke-dashoffset: 0; /* Line becomes fully visible at the end */
+    }
+}
+
+/* Basic styles for SVG demo purposes */
+.demo-svg {
+    width: 200px;
+    height: 100px;
+    border: 1px solid #ccc;
+    margin: 10px;
+
+    /* Added Custom Properties here */
+    --char-animation-base-delay: 0.3s;
+    --char-animation-duration: 9s;
+}
+
+.demo-svg path {
+    stroke: black;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* Basic styles for demo text in SVG - ADJUSTED */
+.demo-svg text {
+    font-size: 20px; /* Default font size for text in demo SVGs */
+    font-family: sans-serif; /* Default font family */
+}
+
+/* For character-by-character drawing */
+.char-for-drawing {
+    stroke: navy;       /* Line color */
+    stroke-width: 0.5;  /* Line thickness */
+    fill: none;         /* No fill initially */
+    stroke-dasharray: 1000; /* A large enough fixed value for drawing effect */
+    stroke-dashoffset: 1000; /* Initial offset, making the line invisible */
+    opacity: 0; /* Initially invisible, JS will make it visible and set delay/start animation */
+    animation-name: draw-path-kf;
+    animation-duration: var(--char-animation-duration);
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: calc(var(--char-animation-base-delay) * var(--char-index, 0)); /* JS will set --char-index */
+}

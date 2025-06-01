@@ -1,0 +1,177 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #555;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"] { /* Though generatedPassword is readonly, this provides base */
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Group radio buttons/checkboxes for better layout if labels wrap */
+section label { /* Target labels within sections for radios/checkboxes */
+    font-weight: normal; /* Override bold for radio/checkbox item labels */
+    display: inline-flex; /* Allows for better alignment and spacing */
+    align-items: center;
+    margin-right: 15px; /* Spacing between radio/checkbox options */
+    margin-bottom: 5px; /* Spacing for wrapped lines */
+}
+
+
+input#customLengthInput {
+    width: 80px; /* Smaller width for custom length */
+    margin-left: 5px;
+}
+
+input#customLengthInput:disabled {
+    background-color: #eee;
+}
+
+input#generatedPassword {
+    background-color: #e9e9e9;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1em;
+    color: #000; /* Ensure text is dark for readability */
+}
+
+button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button#copyButton {
+    background-color: #28a745; /* Green for copy */
+    margin-left: 10px;
+}
+
+button#copyButton:hover {
+    background-color: #1e7e34;
+}
+
+/* Adjustments for specific sections if needed */
+section > label[for="baseWord"], /* Target specific labels for text inputs */
+section > label[for="customLengthInput"] { /* Example if you had a label for customLengthInput */
+    display: block; /* Make them block level again */
+    font-weight: bold;
+    margin-right: 0;
+}
+
+/* Ensure sections for character types align items well if they wrap */
+section h2 + label, /* First label after h2 in a section */
+section br + label { /* Labels after a line break (if any) */
+    margin-left: 0; /* Reset any specific margin if needed */
+}
+
+/* Styling for the existing structure (body as flex container) */
+h1, section {
+    width: 100%;
+    max-width: 600px; /* Max width for content sections */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* For radio/checkbox groups, ensure labels are treated as distinct items */
+section div.option-group { /* If you wrap options in a div */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+section div.option-group label {
+    margin-right: 0; /* Remove default right margin if using gap */
+}
+
+/* Ensure the baseWord input and its label are block-like */
+label[for="baseWord"] {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px; /* Space between label and input */
+}
+input#baseWord {
+    width: calc(100% - 22px); /* Full width minus padding/border */
+    display: block; /* Ensure it takes its own line */
+}
+
+/* Ensure generated password section elements are well-spaced */
+section h2 + input#generatedPassword { /* Target input directly after h2 */
+    margin-top: 5px;
+}
+input#generatedPassword + button#copyButton { /* Target button directly after input */
+     margin-top: 0; /* Align with input if on same effective "line" due to input's margin-bottom */
+}
+
+input#generatedPassword {
+    display: inline-block;
+    width: calc(70% - 12px);
+    margin-right: 10px;
+}
+button#copyButton {
+    width: calc(30% - 12px);
+}
