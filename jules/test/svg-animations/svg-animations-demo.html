@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG線画アニメーションデモ</title>
+    <link rel="stylesheet" href="svg-animations.css">
+</head>
+<body>
+    <h1>SVG線画アニメーション：単純な直線</h1>
+    <svg class="demo-svg" viewBox="0 0 100 50">
+        <path class="animate-draw-stroke" d="M5 25 H 95" pathLength="100" />
+    </svg>
+    <p>上のSVGでは、<code>pathLength="100"</code> をpath要素に指定し、CSS側でアニメーションさせています。</p>
+    <h2>SVG線画アニメーション：テキスト（JSで文字分割）</h2>
+    <svg class="demo-svg" id="char-by-char-text-demo-area" viewBox="0 0 200 50">
+        <text id="text-to-animate-auto" x="10" y="35">Hello SVG!</text>
+    </svg>
+    <p>上のSVGでは、<code>&lt;text&gt;</code> 内の文字列をJavaScriptで1文字ずつ<code>&lt;tspan&gt;</code>に分割し、順番にアニメーションで描画します。</p>
+<script src="svg-animations-script.js"></script>
+</body>
+</html>

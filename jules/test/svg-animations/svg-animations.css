@@ -1,0 +1,23 @@
+/* svg-animations.css */
+.demo-svg {
+    width: 200px; height: 100px; border: 1px solid #ccc; margin: 10px;
+    --char-animation-base-delay: 0.3s;
+    --char-animation-duration: 9s;
+}
+.animate-draw-stroke {
+    stroke-dasharray: 100; stroke-dashoffset: 100;
+    animation: draw-path-kf var(--char-animation-duration) linear forwards;
+}
+@keyframes draw-path-kf { to { stroke-dashoffset: 0; } }
+.demo-svg path { stroke: black; stroke-width: 2; fill: none; }
+.demo-svg text { font-size: 20px; font-family: sans-serif; }
+.char-for-drawing {
+    stroke: navy; stroke-width: 0.5; fill: none;
+    stroke-dasharray: 1000; stroke-dashoffset: 1000;
+    opacity: 0;
+    animation-name: draw-path-kf;
+    animation-duration: var(--char-animation-duration);
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: calc(var(--char-animation-base-delay) * var(--char-index, 0));
+}
